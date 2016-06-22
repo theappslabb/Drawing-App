@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EA4188A1D1AFED9007F2D36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA418891D1AFED9007F2D36 /* Main.storyboard */; };
 		6D796B7B19184BBA0045456F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D796B7A19184BBA0045456F /* CoreText.framework */; };
 		7B5AD3FB169A072800904C6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5AD3FA169A072800904C6B /* UIKit.framework */; };
 		7B5AD3FD169A072800904C6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5AD3FC169A072800904C6B /* Foundation.framework */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5EA418891D1AFED9007F2D36 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6D796B7A19184BBA0045456F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		7B5AD3F6169A072800904C6B /* ACEDrawingViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACEDrawingViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5AD3FA169A072800904C6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -106,6 +108,7 @@
 				7B5AD40A169A072800904C6B /* ACEAppDelegate.m */,
 				7B5AD412169A072800904C6B /* ACEViewController.h */,
 				7B5AD413169A072800904C6B /* ACEViewController.m */,
+				5EA418891D1AFED9007F2D36 /* Main.storyboard */,
 				7B5AD415169A072800904C6B /* ACEViewController.xib */,
 				C9CD0AB61C7C3791007F4BC8 /* patriotism.jpg */,
 				C9CA4F911C7DD2D700FD95EE /* Images.xcassets */,
@@ -203,6 +206,7 @@
 				7B5AD405169A072800904C6B /* InfoPlist.strings in Resources */,
 				7B5AD40D169A072800904C6B /* Default.png in Resources */,
 				C9CA4F921C7DD2D700FD95EE /* Images.xcassets in Resources */,
+				5EA4188A1D1AFED9007F2D36 /* Main.storyboard in Resources */,
 				7B5AD40F169A072800904C6B /* Default@2x.png in Resources */,
 				7B5AD411169A072800904C6B /* Default-568h@2x.png in Resources */,
 				7B5AD417169A072800904C6B /* ACEViewController.xib in Resources */,
@@ -309,7 +313,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ACEDrawingViewDemo/ACEDrawingViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "ACEDrawingViewDemo/ACEDrawingViewDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -324,7 +328,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ACEDrawingViewDemo/ACEDrawingViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "ACEDrawingViewDemo/ACEDrawingViewDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
