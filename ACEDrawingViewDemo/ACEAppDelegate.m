@@ -14,11 +14,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSLog(@"ios = %f",[[UIDevice currentDevice].systemVersion floatValue]);
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.viewController = [ACEViewController new];
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
+//    NSLog(@"ios = %f",[[UIDevice currentDevice].systemVersion floatValue]);
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.viewController = [ACEViewController new];
+//    self.window.rootViewController = self.viewController;
+//    [self.window makeKeyAndVisible];
     return YES;
 }
 

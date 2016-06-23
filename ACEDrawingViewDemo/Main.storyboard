@@ -25,77 +25,14 @@
                                     <constraint firstAttribute="height" constant="44" id="eFg-76-tnk"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem systemItem="undo" id="WWm-pf-g6p">
-                                        <connections>
-                                            <action selector="undo:" destination="5eK-sV-omX" id="K7g-Ez-akm"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="redo" id="7Fi-c4-8DJ">
-                                        <connections>
-                                            <action selector="redo:" destination="5eK-sV-omX" id="7zg-Nn-mHC"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem systemItem="undo" id="WWm-pf-g6p"/>
+                                    <barButtonItem style="plain" systemItem="redo" id="7Fi-c4-8DJ"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fz5-AJ-z4q"/>
-                                    <barButtonItem title="Save" id="wX4-CR-icO">
-                                        <connections>
-                                            <action selector="saveEstimationOnWeb:" destination="5eK-sV-omX" id="phM-je-iam"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Close" id="5Zn-nB-Vbk">
-                                        <connections>
-                                            <action selector="Back:" destination="5eK-sV-omX" id="e1v-UW-d5X"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="Save" id="wX4-CR-icO"/>
+                                    <barButtonItem title="Close" id="5Zn-nB-Vbk"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" red="0.79225294499999999" green="0.003902634514" blue="0.085410802509999995" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uii-XJ-kRE">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.72941176470000002" green="0.0" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="7in-w8-pHy"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ABH-ws-f3C"/>
-                                    <barButtonItem tag="10" image="colorBase" id="LUa-jY-w5p">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="colorSelected:" destination="5eK-sV-omX" id="RAa-YO-5FW"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem tag="11" image="colorBase" id="cll-ag-fYC">
-                                        <color key="tintColor" red="0.93333333333333335" green="0.10980392156862745" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="colorSelected:" destination="5eK-sV-omX" id="A9k-6e-nPu"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem tag="12" image="colorBase" id="ena-Bp-0pL">
-                                        <color key="tintColor" red="1" green="0.82352941176470584" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="colorSelected:" destination="5eK-sV-omX" id="oSM-ZO-8Qm"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem tag="13" image="colorBase" id="kDd-H1-D2J">
-                                        <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="colorSelected:" destination="5eK-sV-omX" id="Dsh-sg-cqU"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem tag="14" image="colorBase" id="eaE-lf-CTE">
-                                        <color key="tintColor" red="0.50196078431372548" green="0.0" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="colorSelected:" destination="5eK-sV-omX" id="v1w-F3-10B"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem tag="15" image="colorBase" id="dhy-bS-Wo2">
-                                        <color key="tintColor" red="0.0" green="0.50196078431372548" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="colorSelected:" destination="5eK-sV-omX" id="6Tu-ee-Mx3"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="0.72941176470000002" green="0.0" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.0" green="0.5" blue="0.16828690760000001" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoZ-bG-8Y2">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -106,55 +43,24 @@
                                 <items>
                                     <barButtonItem image="colorBase" id="vjH-yw-AJf">
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="showColorPicker" destination="5eK-sV-omX" id="GHb-eY-lkg"/>
-                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="NKk-Ng-aBe"/>
-                                    <barButtonItem systemItem="camera" id="cow-Er-MPk">
-                                        <connections>
-                                            <action selector="takeInstantPhoto:" destination="5eK-sV-omX" id="FqI-Xk-Fr6"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem systemItem="camera" id="cow-Er-MPk"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" red="0.79225294499999999" green="0.003902634514" blue="0.085410802509999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.0" green="0.5" blue="0.16828690760000001" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MoZ-bG-8Y2" firstAttribute="leading" secondItem="12E-g0-0bK" secondAttribute="leadingMargin" constant="-20" id="9p1-dV-lJw"/>
                             <constraint firstAttribute="trailing" secondItem="MoZ-bG-8Y2" secondAttribute="trailing" id="9wB-Hd-ZDx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OGX-dj-yTy" secondAttribute="trailing" constant="-20" id="Azl-Y7-WzY"/>
-                            <constraint firstItem="Uii-XJ-kRE" firstAttribute="leading" secondItem="12E-g0-0bK" secondAttribute="leadingMargin" constant="-20" id="BIe-H9-lpf"/>
                             <constraint firstAttribute="trailing" secondItem="OGX-dj-yTy" secondAttribute="trailing" id="GlS-ff-iXZ"/>
                             <constraint firstItem="OGX-dj-yTy" firstAttribute="leading" secondItem="12E-g0-0bK" secondAttribute="leading" id="IJR-1D-KM4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MoZ-bG-8Y2" secondAttribute="trailing" constant="-20" id="KMX-ag-V4l"/>
                             <constraint firstItem="Yfk-uO-0KX" firstAttribute="top" secondItem="MoZ-bG-8Y2" secondAttribute="bottom" id="MvZ-aU-EbY"/>
-                            <constraint firstItem="Yfk-uO-0KX" firstAttribute="top" secondItem="Uii-XJ-kRE" secondAttribute="bottom" id="N0z-Na-WKB"/>
                             <constraint firstItem="MoZ-bG-8Y2" firstAttribute="leading" secondItem="12E-g0-0bK" secondAttribute="leading" id="VCO-NM-VMd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Uii-XJ-kRE" secondAttribute="trailing" constant="-20" id="ZhN-3n-wER"/>
                             <constraint firstItem="OGX-dj-yTy" firstAttribute="top" secondItem="12E-g0-0bK" secondAttribute="topMargin" id="lDJ-5l-HOm"/>
-                            <constraint firstItem="OGX-dj-yTy" firstAttribute="leading" secondItem="12E-g0-0bK" secondAttribute="leadingMargin" constant="-20" id="xza-0S-uS7"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Azl-Y7-WzY"/>
-                                <exclude reference="xza-0S-uS7"/>
-                                <exclude reference="9p1-dV-lJw"/>
-                                <exclude reference="KMX-ag-V4l"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <connections>
-                        <outlet property="closeBtn" destination="5Zn-nB-Vbk" id="7NG-Ap-Q7c"/>
-                        <outlet property="colorButton" destination="vjH-yw-AJf" id="j61-25-bKE"/>
-                        <outlet property="editingToolBar" destination="MoZ-bG-8Y2" id="E3D-uk-4M5"/>
-                        <outlet property="redoButton" destination="7Fi-c4-8DJ" id="5nX-Xe-kF9"/>
-                        <outlet property="saveBtn" destination="wX4-CR-icO" id="kvB-w6-NGP"/>
-                        <outlet property="selectedColor" destination="vjH-yw-AJf" id="iqk-1n-1e5"/>
-                        <outlet property="undoButton" destination="WWm-pf-g6p" id="1fq-f8-0kf"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9t8-AU-3w7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

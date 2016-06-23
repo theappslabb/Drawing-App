@@ -16,7 +16,6 @@
 #define degreesToRadians(x) (M_PI * x / 180.0)
 
 
-
 @interface UIImage (VIUtil)
 
 - (CGSize)sizeThatFits:(CGSize)size;
