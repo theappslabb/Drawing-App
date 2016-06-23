@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Estimate Canvas View Controller-->
+        <!--View Controller-->
         <scene sceneID="TiR-XI-HX8">
             <objects>
-                <viewController storyboardIdentifier="EstimateCanvasViewControllerID" automaticallyAdjustsScrollViewInsets="NO" id="5eK-sV-omX" customClass="EstimateCanvasViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EstimateCanvasViewControllerID" automaticallyAdjustsScrollViewInsets="NO" id="5eK-sV-omX" customClass="ACEViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j2H-AM-jdz"/>
                         <viewControllerLayoutGuide type="bottom" id="Yfk-uO-0KX"/>
@@ -50,17 +50,64 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" red="0.0" green="0.5" blue="0.16828690760000001" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clB-J3-xBC">
+                                <rect key="frame" x="0.0" y="44" width="600" height="512"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eck-Rc-5tV">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="512"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7aq-Hq-xis">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="512"/>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COs-w0-yfO" customClass="ACEDrawingView">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="512"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="COs-w0-yfO" firstAttribute="bottom" secondItem="7aq-Hq-xis" secondAttribute="bottom" id="0iw-gs-yQx"/>
+                                            <constraint firstItem="COs-w0-yfO" firstAttribute="leading" secondItem="7aq-Hq-xis" secondAttribute="leading" id="4LB-j2-zMV"/>
+                                            <constraint firstItem="7aq-Hq-xis" firstAttribute="leading" secondItem="Eck-Rc-5tV" secondAttribute="leading" id="BpA-1B-FcB"/>
+                                            <constraint firstAttribute="trailing" secondItem="7aq-Hq-xis" secondAttribute="trailing" id="cwJ-ZK-mAq"/>
+                                            <constraint firstItem="COs-w0-yfO" firstAttribute="top" secondItem="7aq-Hq-xis" secondAttribute="top" id="mI5-Ti-cXg"/>
+                                            <constraint firstAttribute="bottom" secondItem="7aq-Hq-xis" secondAttribute="bottom" id="mgu-pb-wgE"/>
+                                            <constraint firstItem="7aq-Hq-xis" firstAttribute="top" secondItem="Eck-Rc-5tV" secondAttribute="top" id="s9Q-EA-E7B"/>
+                                            <constraint firstItem="COs-w0-yfO" firstAttribute="trailing" secondItem="7aq-Hq-xis" secondAttribute="trailing" id="sYf-Ns-kHu"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.450793212" blue="0.53608068040000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Eck-Rc-5tV" firstAttribute="centerY" secondItem="clB-J3-xBC" secondAttribute="centerY" id="DvW-fv-QbW"/>
+                                    <constraint firstItem="Eck-Rc-5tV" firstAttribute="centerX" secondItem="clB-J3-xBC" secondAttribute="centerX" id="XlR-B8-bzP"/>
+                                    <constraint firstAttribute="trailing" secondItem="Eck-Rc-5tV" secondAttribute="trailing" id="Zwp-jw-FFV"/>
+                                    <constraint firstItem="Eck-Rc-5tV" firstAttribute="leading" secondItem="clB-J3-xBC" secondAttribute="leading" id="be6-Gt-2fE"/>
+                                    <constraint firstItem="Eck-Rc-5tV" firstAttribute="top" secondItem="clB-J3-xBC" secondAttribute="top" id="jVZ-ea-YGw"/>
+                                    <constraint firstAttribute="bottom" secondItem="Eck-Rc-5tV" secondAttribute="bottom" id="kcQ-xd-D4p"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="MoZ-bG-8Y2" secondAttribute="trailing" id="9wB-Hd-ZDx"/>
+                            <constraint firstItem="clB-J3-xBC" firstAttribute="leading" secondItem="OGX-dj-yTy" secondAttribute="leading" id="CS1-59-j9c"/>
                             <constraint firstAttribute="trailing" secondItem="OGX-dj-yTy" secondAttribute="trailing" id="GlS-ff-iXZ"/>
                             <constraint firstItem="OGX-dj-yTy" firstAttribute="leading" secondItem="12E-g0-0bK" secondAttribute="leading" id="IJR-1D-KM4"/>
                             <constraint firstItem="Yfk-uO-0KX" firstAttribute="top" secondItem="MoZ-bG-8Y2" secondAttribute="bottom" id="MvZ-aU-EbY"/>
                             <constraint firstItem="MoZ-bG-8Y2" firstAttribute="leading" secondItem="12E-g0-0bK" secondAttribute="leading" id="VCO-NM-VMd"/>
+                            <constraint firstItem="clB-J3-xBC" firstAttribute="trailing" secondItem="OGX-dj-yTy" secondAttribute="trailing" id="WJO-uJ-Reg"/>
+                            <constraint firstItem="clB-J3-xBC" firstAttribute="bottom" secondItem="MoZ-bG-8Y2" secondAttribute="top" id="kPf-bb-z4V"/>
                             <constraint firstItem="OGX-dj-yTy" firstAttribute="top" secondItem="12E-g0-0bK" secondAttribute="topMargin" id="lDJ-5l-HOm"/>
+                            <constraint firstItem="clB-J3-xBC" firstAttribute="top" secondItem="OGX-dj-yTy" secondAttribute="bottom" id="tBb-Cy-QCQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="containerView" destination="Eck-Rc-5tV" id="Nn8-ne-Imy"/>
+                        <outlet property="drawingView" destination="COs-w0-yfO" id="5Xs-WM-oQG"/>
+                        <outlet property="imageView" destination="7aq-Hq-xis" id="apD-kk-ksK"/>
+                        <outlet property="scrollView" destination="clB-J3-xBC" id="qWY-J6-xBm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9t8-AU-3w7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -68,6 +115,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="colorBase" width="30" height="30"/>
+        <image name="colorBase" width="32" height="32"/>
     </resources>
 </document>

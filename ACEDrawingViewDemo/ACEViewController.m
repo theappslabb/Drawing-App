@@ -516,7 +516,7 @@
 {
     CGSize imageSize = self.imageView.image.size;
     CGSize imagePresentationSize = self.imageView.contentSize;
-    CGFloat maxScale = MAX(imageSize.height / imagePresentationSize.height, imageSize.width / imagePresentationSize.width);
+    CGFloat maxScale = MAX(imageSize.height * 5 / imagePresentationSize.height * 5, imageSize.width / imagePresentationSize.width);
     self.scrollView.maximumZoomScale = MAX(1, maxScale); // Should not less than 1
     self.scrollView.minimumZoomScale = 1.0;
 }
