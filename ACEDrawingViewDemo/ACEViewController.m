@@ -159,7 +159,8 @@
 {
     // show the preview image
     ACEViewController *obj= [[ACEViewController alloc]init];
-    [self presentModalViewController:obj animated:YES];
+    [self presentViewController:obj animated:true completion:nil];
+//    [self presentModalViewController:obj animated:YES];
 //    [_containerView setTransform:CGAffineTransformMakeRotation(degreesToRadians(270))];
 //    [self SaveFileWithName];
 }
@@ -219,7 +220,8 @@
 
 - (IBAction)clear:(id)sender
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:true completion:nil];
+//    [self dismissModalViewControllerAnimated:YES];
 //    [self.drawingView clear];
 //    [self updateButtonStatus];
 }

@@ -24,6 +24,8 @@
 		C9CA4F901C7D921000FD95EE /* VIPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CA4F8F1C7D921000FD95EE /* VIPhotoView.m */; };
 		C9CA4F921C7DD2D700FD95EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9CA4F911C7DD2D700FD95EE /* Images.xcassets */; };
 		C9CD0AB71C7C3791007F4BC8 /* patriotism.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9CD0AB61C7C3791007F4BC8 /* patriotism.jpg */; };
+		E2103FA51D1DFB810083880B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2103FA41D1DFB810083880B /* Main.storyboard */; };
+		E2103FA81D1DFBAA0083880B /* TemplateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2103FA71D1DFBAA0083880B /* TemplateSelectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,9 @@
 		C9CA4F8F1C7D921000FD95EE /* VIPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPhotoView.m; sourceTree = "<group>"; };
 		C9CA4F911C7DD2D700FD95EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C9CD0AB61C7C3791007F4BC8 /* patriotism.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = patriotism.jpg; sourceTree = "<group>"; };
+		E2103FA41D1DFB810083880B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E2103FA61D1DFBAA0083880B /* TemplateSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateSelectionViewController.h; sourceTree = "<group>"; };
+		E2103FA71D1DFBAA0083880B /* TemplateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateSelectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +112,9 @@
 				7B5AD412169A072800904C6B /* ACEViewController.h */,
 				7B5AD413169A072800904C6B /* ACEViewController.m */,
 				7B5AD415169A072800904C6B /* ACEViewController.xib */,
+				E2103FA41D1DFB810083880B /* Main.storyboard */,
+				E2103FA61D1DFBAA0083880B /* TemplateSelectionViewController.h */,
+				E2103FA71D1DFBAA0083880B /* TemplateSelectionViewController.m */,
 				C9CD0AB61C7C3791007F4BC8 /* patriotism.jpg */,
 				C9CA4F911C7DD2D700FD95EE /* Images.xcassets */,
 				7B5AD401169A072800904C6B /* Supporting Files */,
@@ -175,7 +183,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ACE;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Stefano Acerbetti";
 			};
 			buildConfigurationList = 7B5AD3F0169A072800904C6B /* Build configuration list for PBXProject "ACEDrawingViewDemo" */;
@@ -203,6 +211,7 @@
 				7B5AD405169A072800904C6B /* InfoPlist.strings in Resources */,
 				7B5AD40D169A072800904C6B /* Default.png in Resources */,
 				C9CA4F921C7DD2D700FD95EE /* Images.xcassets in Resources */,
+				E2103FA51D1DFB810083880B /* Main.storyboard in Resources */,
 				7B5AD40F169A072800904C6B /* Default@2x.png in Resources */,
 				7B5AD411169A072800904C6B /* Default-568h@2x.png in Resources */,
 				7B5AD417169A072800904C6B /* ACEViewController.xib in Resources */,
@@ -217,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2103FA81D1DFBAA0083880B /* TemplateSelectionViewController.m in Sources */,
 				C9CA4F901C7D921000FD95EE /* VIPhotoView.m in Sources */,
 				7B5AD407169A072800904C6B /* main.m in Sources */,
 				7B5AD40B169A072800904C6B /* ACEAppDelegate.m in Sources */,
@@ -259,6 +269,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -270,7 +281,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -292,7 +303,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -305,12 +316,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ACEDrawingViewDemo/ACEDrawingViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "ACEDrawingViewDemo/ACEDrawingViewDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.acetools.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -320,12 +334,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ACEDrawingViewDemo/ACEDrawingViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "ACEDrawingViewDemo/ACEDrawingViewDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.acetools.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
