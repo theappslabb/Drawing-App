@@ -25,6 +25,7 @@
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     TemplateSelectionViewController *controller = (TemplateSelectionViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"templateViewController"];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+    self.window.rootViewController = navigationController;
     [self.window addSubview:navigationController.view];
     [self.window makeKeyAndVisible];
     
