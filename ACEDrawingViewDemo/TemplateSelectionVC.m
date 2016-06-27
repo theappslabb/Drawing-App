@@ -6,14 +6,18 @@
 //  Copyright © 2016 Stefano Acerbetti. All rights reserved.
 //
 
-#import "TemplateSelectionViewController.h"
+#import "TemplateSelectionVC.h"
 
-@interface TemplateSelectionViewController ()
+@interface TemplateSelectionVC ()
 
 @end
 
+<<<<<<< Updated upstream:ACEDrawingViewDemo/TemplateSelectionViewController.m
 @implementation TemplateSelectionViewController
 @synthesize templateCollectionView;
+=======
+@implementation TemplateSelectionVC
+>>>>>>> Stashed changes:ACEDrawingViewDemo/TemplateSelectionVC.m
 
 - (void)viewDidLoad {
     [super viewDidLoad];

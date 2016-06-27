@@ -25,7 +25,7 @@
 		C9CA4F901C7D921000FD95EE /* VIPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CA4F8F1C7D921000FD95EE /* VIPhotoView.m */; };
 		C9CA4F921C7DD2D700FD95EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9CA4F911C7DD2D700FD95EE /* Images.xcassets */; };
 		C9CD0AB71C7C3791007F4BC8 /* patriotism.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9CD0AB61C7C3791007F4BC8 /* patriotism.jpg */; };
-		E2E83C7B1D1E2C6F00295B8D /* TemplateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E83C7A1D1E2C6F00295B8D /* TemplateSelectionViewController.m */; };
+		E2E83C7B1D1E2C6F00295B8D /* TemplateSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E83C7A1D1E2C6F00295B8D /* TemplateSelectionVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +55,8 @@
 		C9CA4F8F1C7D921000FD95EE /* VIPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPhotoView.m; sourceTree = "<group>"; };
 		C9CA4F911C7DD2D700FD95EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C9CD0AB61C7C3791007F4BC8 /* patriotism.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = patriotism.jpg; sourceTree = "<group>"; };
-		E2E83C791D1E2C6F00295B8D /* TemplateSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateSelectionViewController.h; sourceTree = "<group>"; };
-		E2E83C7A1D1E2C6F00295B8D /* TemplateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateSelectionViewController.m; sourceTree = "<group>"; };
+		E2E83C791D1E2C6F00295B8D /* TemplateSelectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateSelectionVC.h; sourceTree = "<group>"; };
+		E2E83C7A1D1E2C6F00295B8D /* TemplateSelectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateSelectionVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +112,8 @@
 				7B5AD412169A072800904C6B /* ACEViewController.h */,
 				7B5AD413169A072800904C6B /* ACEViewController.m */,
 				5EA418891D1AFED9007F2D36 /* Main.storyboard */,
-				E2E83C791D1E2C6F00295B8D /* TemplateSelectionViewController.h */,
-				E2E83C7A1D1E2C6F00295B8D /* TemplateSelectionViewController.m */,
+				E2E83C791D1E2C6F00295B8D /* TemplateSelectionVC.h */,
+				E2E83C7A1D1E2C6F00295B8D /* TemplateSelectionVC.m */,
 				7B5AD415169A072800904C6B /* ACEViewController.xib */,
 				C9CD0AB61C7C3791007F4BC8 /* patriotism.jpg */,
 				C9CA4F911C7DD2D700FD95EE /* Images.xcassets */,
@@ -226,7 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2E83C7B1D1E2C6F00295B8D /* TemplateSelectionViewController.m in Sources */,
+				E2E83C7B1D1E2C6F00295B8D /* TemplateSelectionVC.m in Sources */,
 				C9CA4F901C7D921000FD95EE /* VIPhotoView.m in Sources */,
 				7B5AD407169A072800904C6B /* main.m in Sources */,
 				7B5AD40B169A072800904C6B /* ACEAppDelegate.m in Sources */,

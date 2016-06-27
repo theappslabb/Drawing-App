@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+<<<<<<< Updated upstream:ACEDrawingViewDemo/TemplateSelectionViewController.h
 @interface TemplateSelectionViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource> {
     NSArray *templates;
+=======
+@interface TemplateSelectionVC : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource> {
+    UICollectionView *templateCollectionView;
+>>>>>>> Stashed changes:ACEDrawingViewDemo/TemplateSelectionVC.h
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *templateCollectionView;
 
