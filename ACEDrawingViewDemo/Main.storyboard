@@ -9,7 +9,7 @@
         <!--Template Selection View Controller-->
         <scene sceneID="WZr-8d-Vm5">
             <objects>
-                <viewController id="g2z-me-I9Q" customClass="TemplateSelectionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="templateViewController" id="g2z-me-I9Q" customClass="TemplateSelectionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M5r-5z-bn2"/>
                         <viewControllerLayoutGuide type="bottom" id="NiZ-UH-Czz"/>
@@ -17,12 +17,43 @@
                     <view key="view" contentMode="scaleToFill" id="Xgr-eF-U8M">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WVw-nL-cYa">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5yV-lQ-LNm">
+                                    <size key="itemSize" width="279" height="266"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cellIdentifier" reuseIdentifier="cellIdentifier" id="bh4-xj-ZGc">
+                                        <rect key="frame" x="0.0" y="0.0" width="279" height="266"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="279" height="266"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WVw-nL-cYa" firstAttribute="leading" secondItem="Xgr-eF-U8M" secondAttribute="leadingMargin" constant="-20" id="QMe-EE-OTG"/>
+                            <constraint firstItem="WVw-nL-cYa" firstAttribute="top" secondItem="M5r-5z-bn2" secondAttribute="bottom" constant="-20" id="gGL-sa-IgM"/>
+                            <constraint firstItem="NiZ-UH-Czz" firstAttribute="top" secondItem="WVw-nL-cYa" secondAttribute="bottom" id="m4P-JF-lJX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WVw-nL-cYa" secondAttribute="trailing" constant="-20" id="vKa-ds-jdF"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="templateCollectionView" destination="WVw-nL-cYa" id="L6z-vP-0N4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fnb-ZL-MfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1809" y="2"/>
+            <point key="canvasLocation" x="1646" y="2"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="TiR-XI-HX8">

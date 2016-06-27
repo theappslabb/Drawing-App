@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Stefano Acerbetti. All rights reserved.
 //
 
+#import "TemplateSelectionViewController.h"
+
 #import "ACEAppDelegate.h"
 
 #import "ACEViewController.h"
@@ -19,6 +21,14 @@
 //    self.viewController = [ACEViewController new];
 //    self.window.rootViewController = self.viewController;
 //    [self.window makeKeyAndVisible];
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    TemplateSelectionViewController *controller = (TemplateSelectionViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"templateViewController"];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+    [self.window addSubview:navigationController.view];
+    [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 

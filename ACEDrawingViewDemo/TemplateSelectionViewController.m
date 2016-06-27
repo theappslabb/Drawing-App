@@ -13,19 +13,24 @@
 @end
 
 @implementation TemplateSelectionViewController
+@synthesize templateCollectionView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Collection View
-    UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
-    templateCollectionView=[[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
-    [templateCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellIdentifier"];
-    [templateCollectionView setBackgroundColor:[UIColor whiteColor]];
+    [templateCollectionView setBackgroundColor:[UIColor blackColor]];
     [templateCollectionView setDelegate:self];
     [templateCollectionView setDataSource:self];
-    [templateCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"templateCell"];
     [self.view addSubview:templateCollectionView];
     [templateCollectionView reloadData];
+    
+    //Templates Array
+    templates = [[NSArray alloc] initWithObjects:@"Blank",@"Black Background",@"White Background", nil];
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    TemplateSelectionViewController *controller = (TemplateSelectionViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"templateViewController"];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self];
+    [self.view removeFromSuperview];
     // Do any additional setup after loading the view.
 }
 
@@ -44,14 +49,22 @@
     return size;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 3;
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [templates count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"templateCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor blackColor];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor whiteColor];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.text = templates[indexPath.row];
+    [cell addSubview:titleLabel];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 @end

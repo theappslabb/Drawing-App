@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface TemplateSelectionViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource> {
-    UICollectionView *templateCollectionView;
+    NSArray *templates;
 }
+@property (weak, nonatomic) IBOutlet UICollectionView *templateCollectionView;
 
 @end
