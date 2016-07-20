@@ -8,47 +8,88 @@
 
 #import "TemplateSelectionViewController.h"
 
+#import "SettingsSplitViewController.h"
+
 @interface TemplateSelectionViewController ()
 
 @end
 
 @implementation TemplateSelectionViewController
+@synthesize templateCollectionView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //Collection View initializing
-    UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
-    colectionView=[[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
-    colectionView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    [colectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellIdentifier"];
-    colectionView.delegate = self;
-    colectionView.dataSource = self;
-    [self.view addSubview:colectionView];
-    [colectionView reloadData];
     
+    //Collection View
+    [templateCollectionView setBackgroundColor:[UIColor blackColor]];
+    [templateCollectionView setDelegate:self];
+    [templateCollectionView setDataSource:self];
+    [self.view addSubview:templateCollectionView];
+    [templateCollectionView reloadData];
+    
+    //Templates Array
+    templates = [[NSArray alloc] initWithObjects:@"Black Background",@"White Background",@"Choose Background Image From Gallery", nil];
+    
+    //Adding Navigation Bar Button
+    /*UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Settings"
+                                   style:UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(SettingsView)];
+    self.navigationItem.rightBarButtonItem = settingsButton;*/
+
     // Do any additional setup after loading the view.
 }
-
-#pragma Collection View
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 1;
+#pragma-mark Collection View
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    float cellWidth = screenWidth / 3.1;
+    CGSize size = CGSizeMake(cellWidth, cellWidth);
+    return size;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [templates count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
-    cell.frame = CGRectMake(0, 0, self.view.frame.size.width/3, self.view.frame.size.height/3);
-    cell.backgroundColor = UIColor.redColor;
+    cell.backgroundColor = [UIColor whiteColor];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.text = templates[indexPath.row];
+    [cell addSubview:titleLabel];
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//}
+
+#pragma-mark Prepare for Segue
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier  isEqual: @"settings"]) {
     
+    }
 }
+
+
+#pragma-mark Navigation Bar Button Action 
+
+//- (void) SettingsView {
+//    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    SettingsSplitViewController *settingsVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"SettingsSplitVIew"];
+//    [self presentViewController:settingsVC animated:true completion:^(void){
+//    }];
+//}
 
 @end

@@ -29,7 +29,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #define kDefaultLineColor       [UIColor blackColor]
-#define kDefaultLineWidth       2.0f;
+//#define kDefaultLineWidth       2.0f;
 #define kDefaultEraserWidth       10.0f;
 #define kDefaultLineAlpha       1.0f
 
@@ -86,7 +86,7 @@
     
     // set the default values for the public properties
     self.lineColor = kDefaultLineColor;
-    self.lineWidth = kDefaultLineWidth;
+//    self.lineWidth = kDefaultLineWidth;
     self.lineAlpha = kDefaultLineAlpha;
 
     self.drawMode = ACEDrawingModeOriginalSize;
@@ -275,7 +275,7 @@
     
     switch (self.drawTool) {
         case ACEDrawingToolTypePen:
-            self.lineWidth = kDefaultLineWidth;
+//            self.lineWidth = kDefaultLineWidth;
             break;
         case ACEDrawingToolTypeEraser:
             self.lineWidth = kDefaultEraserWidth;

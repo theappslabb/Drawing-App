@@ -1,16 +1,17 @@
-//
-//  ACEViewController.h
-//  ACEDrawingViewDemo
-//
-//  Created by Stefano Acerbetti on 1/6/13.
-//  Copyright (c) 2013 Stefano Acerbetti. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
+@class Colorpicker;
 @class ACEDrawingView;
 
-@interface ACEViewController : UIViewController
+@interface ACEViewController : UIViewController<UIPopoverPresentationControllerDelegate,UIImagePickerControllerDelegate>
+{
+    __weak IBOutlet UIToolbar *
+    editingToolBar;
+    __weak IBOutlet UIBarButtonItem *selectedColor;
+    
+}
+
+@property (nonatomic,strong) Colorpicker *picker;
 
 @property (nonatomic, unsafe_unretained) IBOutlet ACEDrawingView *drawingView;
 
@@ -23,6 +24,14 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIBarButtonItem *colorButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIBarButtonItem *toolButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIBarButtonItem *alphaButton;
+@property (nonatomic, unsafe_unretained) IBOutlet UIBarButtonItem *BrushButton;
+@property (nonatomic, unsafe_unretained) IBOutlet UIBarButtonItem *EraserButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shapesOutlet;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *widthOutlet;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsOutlet;
+@property (weak, nonatomic) IBOutlet UIToolbar *upperToolbar;
+@property (weak, nonatomic) IBOutlet UIToolbar *lowerToolbar;
+
 
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -32,6 +41,10 @@
 - (IBAction)redo:(id)sender;
 - (IBAction)clear:(id)sender;
 - (IBAction)takeScreenshot:(id)sender;
+- (IBAction)shapesPopOver:(UIBarButtonItem *)sender;
+- (IBAction)strokePopOver:(UIBarButtonItem *)sender;
+- (IBAction)getImage:(UIBarButtonItem *)sender;
+- (IBAction)settings:(UIBarButtonItem *)sender;
 
 // settings
 - (IBAction)colorChange:(id)sender;

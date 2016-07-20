@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Stefano Acerbetti. All rights reserved.
 //
 
+#import "TemplateSelectionViewController.h"
+
 #import "ACEAppDelegate.h"
 
 #import "ACEViewController.h"
@@ -14,11 +16,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    NSLog(@"ios = %f",[[UIDevice currentDevice].systemVersion floatValue]);
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.viewController = [ACEViewController new];
-//    self.window.rootViewController = self.viewController;
+    
+//    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+//    ACEViewController *controller = (ACEViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"EstimateCanvasViewControllerID"];
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+//    self.window.rootViewController = navigationController;
+////    [self.window addSubview:navigationController.view];
 //    [self.window makeKeyAndVisible];
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"themeColor"]) {
+        if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"themeColor"]  isEqual: @"normal"]) {
+//            [[navigationController navigationBar] setBarTintColor:[UIColor colorWithRed:(247/255.0) green:(247/255.0) blue:(247/255.0) alpha:1]];
+        } else {
+//            [[navigationController navigationBar] setBarTintColor:[UIColor darkGrayColor]];
+        }
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:@"normal"forKey:@"themeColor"];
+    }
+    
+    
     return YES;
 }
 

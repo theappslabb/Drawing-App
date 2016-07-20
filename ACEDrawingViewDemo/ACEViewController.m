@@ -1,20 +1,12 @@
-//
-//  ACEViewController.m
-//  ACEDrawingViewDemo
-//
-//  Created by Stefano Acerbetti on 1/6/13.
-//  Copyright (c) 2013 Stefano Acerbetti. All rights reserved.
-//
-
 #import "ACEViewController.h"
 #import "ACEDrawingView.h"
+#import "Colorpicker.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define kActionSheetColor       100
 #define kActionSheetTool        101
 
 #define degreesToRadians(x) (M_PI * x / 180.0)
-
 
 
 @interface UIImage (VIUtil)
@@ -74,70 +66,69 @@
 {
     [super viewDidLoad];
     
-    // set the delegate
-    self.drawingView.delegate = self;
+    _picker = [Colorpicker new];
     
-    // start with a black pen
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(methodToChangeTheme:)
+                                                 name:@"ThemeChanged"
+                                               object:nil];
+    
+    [self methodToChangeTheme:nil];
+
+    /**
+     * setup intial line Width and pen color here
+     **/
+    self.lineWidthSlider.maximumValue = 20;
+    self.lineWidthSlider.minimumValue = 1;
+    self.drawingView.lineWidth = 2;
     self.lineWidthSlider.value = self.drawingView.lineWidth;
-    
-//    _bg_imgView = [[VIPhotoView alloc] initWithFrame:_bg_View.bounds andImage:[UIImage imageNamed:@"patriotism.jpg"]];
-//    //    photoView.autoresizingMask = (1 << 6) -1;
-//    [_bg_View addSubview:_bg_imgView];
-//    
-//    [_bg_View addSubview:_drawingView];
+//    [self.lineWidthSlider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    /**
+     * Here i did setup default brush stroke
+     **/
+    [self selectBrush:self];
     
     self.scrollView.delegate = self;
     self.scrollView.bouncesZoom = YES;
-//    UIPanGestureRecognizer *twoFingerPan = [[UIPanGestureRecognizer alloc] init];
-//    twoFingerPan.minimumNumberOfTouches = 2;
-//    twoFingerPan.maximumNumberOfTouches = 2;
-//    [self.scrollView addGestureRecognizer:twoFingerPan];
-    
+    /**
+     * It need atleast two touchs for zooming and draging the canvas
+     **/
     [self.scrollView.panGestureRecognizer setMinimumNumberOfTouches:2];
     [self.scrollView.panGestureRecognizer setMaximumNumberOfTouches:2];
-    
-    // Add container view
-//    UIView *containerView = [[UIView alloc] initWithFrame:self.scrollView.bounds];
-//    containerView.backgroundColor = [UIColor clearColor];
-//    [self addSubview:containerView];
-//    _containerView = containerView;
-    
-    // Add image view
-//    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"patriotism.jpg"]];
-//    imageView.frame = CGRectMake(0, 0, _containerView.frame.size.width, _containerView.frame.size.height);
-//    imageView.backgroundColor = [UIColor redColor];
-//    imageView.contentMode = UIViewContentModeScaleToFill;
-//    [_containerView addSubview:imageView];
-    _imageView.image = [UIImage imageNamed:@"patriotism.jpg"];
-    
-    
-    // Fit container view's size to image size
-    //        CGSize imageSize = imageView.contentSize;
-    //        self.containerView.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
-    //        imageView.bounds = CGRectMake(0, 0, imageSize.width, imageSize.height);
-    //        imageView.center = CGPointMake(containerView.frame.size.width / 2, containerView.frame.size.height / 2);
-    //
-    //        self.contentSize = imageSize;
-    //        self.minSize = imageSize;
-    
-    
+    /**
+     * Here i did setting up max/min zoom level
+     **/
     [self setMaxMinZoomScale];
     
-    // Center containerView by set insets
-    //        [self centerContent];
-    
-    // Setup other events
+    /**
+     * Here i did setup all required gestures
+     **/
     [self setupGestureRecognizer];
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    // set the delegate
+    self.drawingView.delegate = self;
+    
+//    _imageView.image = [UIImage imageNamed:@"patriotism.jpg"];
+    
+    
     [self setupRotationNotification];
 
+    [self.navigationController.navigationBar setHidden:YES];
     
-    
-    
-    
-    // init the preview image
-//    self.previewImageView.layer.borderColor = [[UIColor blackColor] CGColor];
-//    self.previewImageView.layer.borderWidth = 2.0f;
-    
+}
+
+- (void)methodToChangeTheme:(NSNotification *)notification
+{
+    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"themeColor"]  isEqual: @"normal"]) {
+        [[self.navigationController navigationBar] setBarTintColor:[UIColor colorWithRed:(247/255.0) green:(247/255.0) blue:(247/255.0) alpha:1]];
+        [self.upperToolbar setBarTintColor:[UIColor lightGrayColor]];
+        [editingToolBar setBarTintColor:[UIColor lightGrayColor]];
+    } else {
+        [[self.navigationController navigationBar] setBarTintColor:[UIColor darkGrayColor]];
+        [self.upperToolbar setBarTintColor:[UIColor darkGrayColor]];
+        [editingToolBar setBarTintColor:[UIColor darkGrayColor]];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -157,12 +148,61 @@
 
 - (IBAction)takeScreenshot:(id)sender
 {
-    // show the preview image
-    ACEViewController *obj= [[ACEViewController alloc]init];
-    [self presentViewController:obj animated:true completion:nil];
-//    [self presentModalViewController:obj animated:YES];
-//    [_containerView setTransform:CGAffineTransformMakeRotation(degreesToRadians(270))];
-//    [self SaveFileWithName];
+    [self SaveFileWithName];
+}
+
+- (IBAction)shapesPopOver:(UIBarButtonItem *)sender {
+    [self popOverShapes:@"shapes"];
+}
+
+- (IBAction)strokePopOver:(UIBarButtonItem *)sender {
+    [self popOverShapes:@"Slider"];
+}
+
+- (IBAction)getImage:(UIBarButtonItem *)sender {
+    UIImagePickerController *pickerView = [[UIImagePickerController alloc] init];
+    pickerView.allowsEditing = YES;
+    pickerView.delegate = self;
+    [pickerView setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self presentModalViewController:pickerView animated:YES];
+
+}
+
+- (IBAction)settings:(UIBarButtonItem *)sender {
+    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsTable"];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
+    nav.modalPresentationStyle = UIModalPresentationPopover;
+    UIPopoverPresentationController *popover = nav.popoverPresentationController;
+    controller.preferredContentSize = CGSizeMake(300, 400);
+    popover.delegate = self;
+    popover.barButtonItem = self.settingsOutlet;
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
+- (IBAction)S:(UIBarButtonItem *)sender {
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    
+    [self dismissModalViewControllerAnimated:true];
+    
+    UIImage * img = [info valueForKey:UIImagePickerControllerOriginalImage];
+    
+    
+    
+    UIGraphicsBeginImageContext(CGSizeMake(self.view.frame.size.width, self.view.frame.size.height));
+    [img drawInRect:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    //here is the scaled image which has been changed to the size specified
+    UIGraphicsEndImageContext();
+    
+    _drawingView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    _drawingView.clipsToBounds = YES;
+    
+    self.scrollView.frame = self.view.frame;
+    
+    [self.drawingView loadImage:newImage];
+    
 }
 
 
@@ -170,6 +210,7 @@
 {
     NSError *error;
     NSData *pngData = UIImagePNGRepresentation(_drawingView.image);
+    UIImageWriteToSavedPhotosAlbum(_drawingView.image, nil, nil, nil);
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
@@ -184,13 +225,14 @@
     NSLog(@"imageSize.width = %f,imageSize.height = %f",imageSize.width,imageSize.height);
     [pngData writeToFile:filePath atomically:YES];
     
-    [self GetFileWithName];
+//    [self GetFileWithName];
 }
 
 - (void) GetFileWithName
 {
     NSString *workSpacePath=[[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"image.png"];
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfFile:workSpacePath]];
+    
     
     CGSize imageSize = image.size;
     
@@ -220,11 +262,67 @@
 
 - (IBAction)clear:(id)sender
 {
-    [self dismissViewControllerAnimated:true completion:nil];
-//    [self dismissModalViewControllerAnimated:YES];
-//    [self.drawingView clear];
-//    [self updateButtonStatus];
+    [self.drawingView clear];
+    [self updateButtonStatus];
+    [self selectBrush:self];
 }
+
+- (IBAction)selectEraser:(id)sender
+{
+    self.drawingView.drawTool = ACEDrawingToolTypeEraser;
+    [self.BrushButton setEnabled:YES];
+    [self.EraserButton setEnabled:NO];
+}
+
+- (IBAction)selectBrush:(id)sender
+{
+    self.drawingView.drawTool = ACEDrawingToolTypePen;
+    [self.BrushButton setEnabled:NO];
+    [self.EraserButton setEnabled:YES];
+}
+
+
+- (IBAction)showColorPicker
+{
+    [editingToolBar setHidden:YES];
+}
+
+- (IBAction)colorSelected:(id)sender
+{
+    UIColor *color;
+    
+    if ([sender tag] == 10)
+    {
+        color = [_picker colorWithHexString:@"000000"];
+    }
+    else if ([sender tag] == 11)
+    {
+        color = [_picker colorWithHexString:@"EE1C23"];
+    }
+    else if ([sender tag] == 12)
+    {
+        color = [_picker colorWithHexString:@"FFD203"];
+    }
+    else if ([sender tag] == 13)
+    {
+        color = [_picker colorWithHexString:@"0000FF"];
+    }
+    else if ([sender tag] == 14)
+    {
+        color = [_picker colorWithHexString:@"800080"];
+    }
+    else if ([sender tag] == 15)
+    {
+        color = [_picker colorWithHexString:@"008000"];
+    }
+    
+    selectedColor.tintColor = color;
+    self.drawingView.lineColor = color;
+    
+    [editingToolBar setHidden:NO];
+}
+
+
 
 
 #pragma mark - ACEDrawing View Delegate
@@ -265,40 +363,40 @@
             
             self.toolButton.title = [actionSheet buttonTitleAtIndex:buttonIndex];
             switch (buttonIndex) {
+//                case 0:
+//                    self.drawingView.drawTool = ACEDrawingToolTypePen;
+//                    break;
+//                    
                 case 0:
-                    self.drawingView.drawTool = ACEDrawingToolTypePen;
-                    break;
-                    
-                case 1:
                     self.drawingView.drawTool = ACEDrawingToolTypeLine;
                     break;
                     
-                case 2:
+                case 1:
                     self.drawingView.drawTool = ACEDrawingToolTypeRectagleStroke;
                     break;
                     
-                case 3:
+                case 2:
                     self.drawingView.drawTool = ACEDrawingToolTypeRectagleFill;
                     break;
                     
-                case 4:
+                case 3:
                     self.drawingView.drawTool = ACEDrawingToolTypeEllipseStroke;
                     break;
                     
-                case 5:
+                case 4:
                     self.drawingView.drawTool = ACEDrawingToolTypeEllipseFill;
                     break;
                     
-                case 6:
-                    self.drawingView.drawTool = ACEDrawingToolTypeEraser;
-//                    self.drawingView initWithFrame:<#(CGRect)#>
-                    break;
-                    
-                case 7:
-                    self.drawingView.drawTool = ACEDrawingToolTypeText;
-                    break;
+//                case 6:
+//                    self.drawingView.drawTool = ACEDrawingToolTypeEraser;
+////                    self.drawingView initWithFrame:<#(CGRect)#>
+//                    break;
+//                    
+//                case 7:
+//                    self.drawingView.drawTool = ACEDrawingToolTypeText;
+//                    break;
 
-                case 8:
+                case 5:
                     self.drawingView.drawTool = ACEDrawingToolTypeMultilineText;
                     break;
             }
@@ -329,11 +427,15 @@
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Pen", @"Line",
+                                                    otherButtonTitles:@"Line",
                                   @"Rect (Stroke)", @"Rect (Fill)",
-                                  @"Ellipse (Stroke)", @"Ellipse (Fill)",
-                                  @"Eraser", @"Text", @"Text (Multiline)",
+                                  @"Ellipse (Stroke)", @"Ellipse (Fill)", @"Text (Multiline)",
                                   nil];
+    
+    /*@"Pen", @"Line",
+     @"Rect (Stroke)", @"Rect (Fill)",
+     @"Ellipse (Stroke)", @"Ellipse (Fill)",
+     @"Eraser", @"Text", @"Text (Multiline)"*/
     
     [actionSheet setTag:kActionSheetTool];
     [actionSheet showInView:self.view];
@@ -367,17 +469,37 @@
 - (IBAction)toggleWidthSlider:(id)sender
 {
     // toggle the slider
-//    self.lineWidthSlider.hidden = !self.lineWidthSlider.hidden;
-//    self.lineAlphaSlider.hidden = YES;
+    self.lineWidthSlider.hidden = !self.lineWidthSlider.hidden;
+    [self.lineWidthSlider setValue:self.drawingView.lineWidth];
+//    [self GetFileWithName];wi
+    if (self.containerView.alpha == 1) {
+        [self.containerView setAlpha:0.5];
+        [self.drawingView setUserInteractionEnabled:NO];
+    } else {
+        [self.containerView setAlpha:1];
+        [self.drawingView setUserInteractionEnabled:YES];
+    }
     
-    [self GetFileWithName];
-    [self.drawingView setUserInteractionEnabled:NO];
+}
+
+- (IBAction)hideWidthSlider:(id)sender
+{
+    // toggle the slider
+    self.lineWidthSlider.hidden = YES;
     
+    //    [self GetFileWithName];
+    [self.drawingView setUserInteractionEnabled:YES];
+}
+
+- (IBAction)sliderValueChanged:(UISlider *)sender {
+    self.drawingView.lineWidth = sender.value;
+    NSLog(@"%f",self.drawingView.lineWidth);
 }
 
 - (IBAction)widthChange:(UISlider *)sender
 {
-    self.drawingView.lineWidth = sender.value;
+//    NSLog(@"%d",self.lineWidthSlider.value);
+//    self.drawingView.lineWidth = self.lineWidthSlider.value;
 }
 
 - (IBAction)toggleAlphaSlider:(id)sender
@@ -519,7 +641,7 @@
 {
     CGSize imageSize = self.imageView.image.size;
     CGSize imagePresentationSize = self.imageView.contentSize;
-    CGFloat maxScale = MAX(imageSize.height / imagePresentationSize.height, imageSize.width / imagePresentationSize.width);
+    CGFloat maxScale = MAX(imageSize.height * 5 / imagePresentationSize.height * 5, imageSize.width / imagePresentationSize.width);
     self.scrollView.maximumZoomScale = MAX(1, maxScale); // Should not less than 1
     self.scrollView.minimumZoomScale = 1.0;
 }
@@ -540,6 +662,26 @@
     left -= frame.origin.x;
     
     self.scrollView.contentInset = UIEdgeInsetsMake(top, left, top, left);
+}
+
+#pragma-mark Pop Over Presentation
+
+-(void) popOverShapes: (NSString*) storyBoardID
+{
+    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:storyBoardID];
+//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
+    controller.modalPresentationStyle = UIModalPresentationPopover;
+    UIPopoverPresentationController *popover = controller.popoverPresentationController;
+    controller.preferredContentSize = CGSizeMake(300, 400);
+    popover.delegate = self;
+    if ([storyBoardID  isEqual: @"shapes"]) {
+        popover.barButtonItem = _shapesOutlet;
+    } else {
+        popover.barButtonItem = _widthOutlet;
+    }
+    
+    [self presentViewController:controller animated:YES completion:nil];
+    
 }
 
 @end
