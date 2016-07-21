@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsSplitViewController.h"
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface SplitSettingsTable : UITableViewController{
+@interface SplitSettingsTable : UITableViewController<MFMailComposeViewControllerDelegate>{
     NSArray *settingsArray;
 }
 

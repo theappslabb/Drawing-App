@@ -31,6 +31,11 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsOutlet;
 @property (weak, nonatomic) IBOutlet UIToolbar *upperToolbar;
 @property (weak, nonatomic) IBOutlet UIToolbar *lowerToolbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *clearAllOutlet;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *toolChangeOutlet;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraOutlet;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *widthSliderOutlet;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveOutlet;
 
 
 
@@ -45,6 +50,7 @@
 - (IBAction)strokePopOver:(UIBarButtonItem *)sender;
 - (IBAction)getImage:(UIBarButtonItem *)sender;
 - (IBAction)settings:(UIBarButtonItem *)sender;
+- (IBAction)saveDrawing:(UIBarButtonItem *)sender;
 
 // settings
 - (IBAction)colorChange:(id)sender;

@@ -57,6 +57,8 @@ UIColor *defaultColor;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SettingsCell" forIndexPath:indexPath];
     cell.textLabel.text = settingsArray[indexPath.row];
+    cell.detailTextLabel.text = @"";
+    
     if ([settingsArray[indexPath.row]  isEqual: @"Night Theme"]) {
         UISwitch *nightSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width - 60, cell.frame.size.height - 40, 50, 40)];
         [nightSwitch addTarget:self action:@selector(ReverseTheme) forControlEvents:UIControlEventValueChanged];
@@ -69,6 +71,11 @@ UIColor *defaultColor;
         }
         [cell addSubview:nightSwitch];
     }
+    
+    if ([settingsArray[indexPath.row]  isEqual: @"App Version"]) {
+        cell.detailTextLabel.text = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    }
+    
     return cell;
 }
 
@@ -79,8 +86,28 @@ UIColor *defaultColor;
         AboutViewController *aboutViewController = [storyboard instantiateViewControllerWithIdentifier:@"AboutViewController"];
         [self.navigationController pushViewController:aboutViewController animated:true];
     } else if (indexPath.row == 2) {
-        
+        if([MFMailComposeViewController canSendMail]) {
+            MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
+            mailCont.mailComposeDelegate = self;
+            
+            [mailCont setSubject:@"Feedback"];
+            [mailCont setToRecipients:[NSArray arrayWithObject:@"gghangura@gmail.com"]];
+            [mailCont setMessageBody:@"Don't ever want to give you up" isHTML:NO];
+            [self presentViewController:mailCont animated:true completion:^(void){
+                
+            }];
+            
+        }
     } else if (indexPath.row == 3) {
+        [self dismissViewControllerAnimated:false completion:^(void){
+            NSNotification *myNotification = [NSNotification notificationWithName:@"shareApp"
+                                                                           object:self
+                                                                         userInfo:nil];
+            
+            
+            [[NSNotificationCenter defaultCenter] postNotification:myNotification];
+            
+        }];
         
     } else if (indexPath.row == 4) {
         
@@ -91,6 +118,7 @@ UIColor *defaultColor;
     }
     
 }
+
 
 -(void) ReverseTheme {
     if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"themeColor"]  isEqual: @"normal"]) {
@@ -113,6 +141,11 @@ UIColor *defaultColor;
     [self dismissViewControllerAnimated:true completion:^(void){
         
     }];
+}
+
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 

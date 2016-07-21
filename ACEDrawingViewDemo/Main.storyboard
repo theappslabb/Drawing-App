@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ej1-rj-r2s">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ej1-rj-r2s">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -98,12 +98,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" rowHeight="60" id="ZKd-os-2ZC">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="h0g-PA-mw0" detailTextLabel="xpI-D6-Me1" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="ZKd-os-2ZC">
                                 <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZKd-os-2ZC" id="7WH-oR-CAK">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h0g-PA-mw0">
+                                            <rect key="frame" x="15" y="13" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xpI-D6-Me1">
+                                            <rect key="frame" x="15" y="33" width="41" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableViewCell>
@@ -180,6 +196,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="gH7-1I-U9s"/>
+                                    <barButtonItem title="Save" id="Zlf-Io-LDE">
+                                        <connections>
+                                            <action selector="saveDrawing:" destination="ej1-rj-r2s" id="Jkj-yU-KjV"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Settings" id="4dq-t8-PAN">
                                         <connections>
                                             <action selector="settings:" destination="ej1-rj-r2s" id="3Lp-Go-1sP"/>
@@ -351,6 +372,8 @@
                     <connections>
                         <outlet property="BrushButton" destination="spD-2x-USI" id="Xhk-lz-trT"/>
                         <outlet property="EraserButton" destination="ubP-Hj-kFr" id="ydp-QZ-0hz"/>
+                        <outlet property="cameraOutlet" destination="gkB-Nu-jHS" id="lKl-Ao-wRr"/>
+                        <outlet property="clearAllOutlet" destination="XhQ-T0-a6G" id="SHD-8V-Fay"/>
                         <outlet property="colorButton" destination="0Pn-Ha-1Sd" id="p7S-A9-xMM"/>
                         <outlet property="containerView" destination="uJr-QK-ug5" id="89o-Hi-EwH"/>
                         <outlet property="drawingView" destination="0tR-xt-GU7" id="rZN-60-1XZ"/>
@@ -359,10 +382,13 @@
                         <outlet property="lineWidthSlider" destination="rA9-OV-3Xi" id="W4d-jO-8sb"/>
                         <outlet property="lowerToolbar" destination="hkQ-eT-OFs" id="Eiv-iU-lMJ"/>
                         <outlet property="redoButton" destination="Hcn-Ih-RWx" id="3oS-UA-8VF"/>
+                        <outlet property="saveOutlet" destination="Zlf-Io-LDE" id="K2U-y8-eef"/>
                         <outlet property="scrollView" destination="nUm-E4-LXD" id="1Tu-me-kyt"/>
                         <outlet property="settingsOutlet" destination="4dq-t8-PAN" id="4b7-ta-8VC"/>
+                        <outlet property="toolChangeOutlet" destination="U6e-OA-Tyw" id="FYI-rM-1pe"/>
                         <outlet property="undoButton" destination="zP7-ey-rXt" id="WL4-XL-pdQ"/>
                         <outlet property="upperToolbar" destination="lBE-jT-fd0" id="uYt-fg-TvW"/>
+                        <outlet property="widthSliderOutlet" destination="03m-EN-SXM" id="Cuo-Jj-8zP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J58-LT-OAR" userLabel="First Responder" sceneMemberID="firstResponder"/>

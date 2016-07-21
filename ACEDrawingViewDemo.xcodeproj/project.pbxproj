@@ -29,6 +29,7 @@
 		E20B336B1D241FBE00D531E3 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20B336A1D241FBE00D531E3 /* AboutViewController.m */; };
 		E20B336F1D24244800D531E3 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20B336E1D24244800D531E3 /* BaseViewController.m */; };
 		E23905811D3D52DD00359EBC /* ACEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E239057F1D3D52DD00359EBC /* ACEViewController.m */; };
+		E2E0223E1D4038C40068AB7A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E0223D1D4038C40068AB7A /* MessageUI.framework */; };
 		E2E83C7B1D1E2C6F00295B8D /* TemplateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E83C7A1D1E2C6F00295B8D /* TemplateSelectionViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		E20B336E1D24244800D531E3 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		E239057F1D3D52DD00359EBC /* ACEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACEViewController.m; sourceTree = "<group>"; };
 		E23905801D3D52DD00359EBC /* ACEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEViewController.h; sourceTree = "<group>"; };
+		E2E0223D1D4038C40068AB7A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		E2E83C791D1E2C6F00295B8D /* TemplateSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateSelectionViewController.h; sourceTree = "<group>"; };
 		E2E83C7A1D1E2C6F00295B8D /* TemplateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateSelectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E0223E1D4038C40068AB7A /* MessageUI.framework in Frameworks */,
 				6D796B7B19184BBA0045456F /* CoreText.framework in Frameworks */,
 				7B5AD3FB169A072800904C6B /* UIKit.framework in Frameworks */,
 				7B5AD3FD169A072800904C6B /* Foundation.framework in Frameworks */,
@@ -106,6 +109,7 @@
 		7B5AD3F9169A072800904C6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E2E0223D1D4038C40068AB7A /* MessageUI.framework */,
 				6D796B7A19184BBA0045456F /* CoreText.framework */,
 				7B5AD3FA169A072800904C6B /* UIKit.framework */,
 				7B5AD3FC169A072800904C6B /* Foundation.framework */,

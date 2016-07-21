@@ -68,10 +68,7 @@
     
     _picker = [Colorpicker new];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(methodToChangeTheme:)
-                                                 name:@"ThemeChanged"
-                                               object:nil];
+    [self addObservers];
     
     [self methodToChangeTheme:nil];
 
@@ -121,13 +118,9 @@
 - (void)methodToChangeTheme:(NSNotification *)notification
 {
     if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"themeColor"]  isEqual: @"normal"]) {
-        [[self.navigationController navigationBar] setBarTintColor:[UIColor colorWithRed:(247/255.0) green:(247/255.0) blue:(247/255.0) alpha:1]];
-        [self.upperToolbar setBarTintColor:[UIColor lightGrayColor]];
-        [editingToolBar setBarTintColor:[UIColor lightGrayColor]];
+        [self lightTheme];
     } else {
-        [[self.navigationController navigationBar] setBarTintColor:[UIColor darkGrayColor]];
-        [self.upperToolbar setBarTintColor:[UIColor darkGrayColor]];
-        [editingToolBar setBarTintColor:[UIColor darkGrayColor]];
+        [self darkTheme];
     }
 }
 
@@ -177,6 +170,34 @@
     popover.delegate = self;
     popover.barButtonItem = self.settingsOutlet;
     [self presentViewController:nav animated:YES completion:nil];
+}
+
+- (IBAction)saveDrawing:(UIBarButtonItem *)sender {
+    NSString * message = @"Save Image";
+    
+    UIImage * image = self.drawingView.image;
+    
+    if (image != nil) {
+        NSArray * shareItems = @[message, image];
+        
+        UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
+        
+        avc.popoverPresentationController.barButtonItem = self.saveOutlet;
+        
+        [self presentViewController:avc animated:YES completion:nil];
+    } else {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Alert"
+                                                                       message:@"Draw Something to save"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    
+    
 }
 
 - (IBAction)S:(UIBarButtonItem *)sender {
@@ -682,6 +703,67 @@
     
     [self presentViewController:controller animated:YES completion:nil];
     
+}
+
+- (void)shareText
+{
+    NSMutableArray *sharingItems = [NSMutableArray new];
+    
+    [sharingItems addObject:@"www.google.com"];
+    
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+    activityController.popoverPresentationController.barButtonItem = self.settingsOutlet;
+    [self presentViewController:activityController animated:YES completion:nil];
+    
+}
+-(void) addObservers{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(methodToChangeTheme:)
+                                                 name:@"ThemeChanged"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(shareText)
+                                                 name:@"shareApp"
+                                               object:nil];
+    
+}
+-(void)removeObservers {
+    [[NSNotificationCenter defaultCenter] removeObserver:@"ThemeChanged"];
+    [[NSNotificationCenter defaultCenter] removeObserver:@"shareApp"];
+}
+-(void)darkTheme {
+    [[self.navigationController navigationBar] setBarTintColor:[UIColor darkGrayColor]];
+    [self.upperToolbar setBarTintColor:[UIColor darkGrayColor]];
+    [editingToolBar setBarTintColor:[UIColor darkGrayColor]];
+    [self.clearAllOutlet setTintColor:[UIColor whiteColor]];
+    [self.settingsOutlet setTintColor:[UIColor whiteColor]];
+    [self.toolChangeOutlet setTintColor:[UIColor whiteColor]];
+    [self.undoButton setTintColor:[UIColor whiteColor]];
+    [self.cameraOutlet setTintColor:[UIColor whiteColor]];
+    [self.undoButton setTintColor:[UIColor whiteColor]];
+    [self.redoButton setTintColor:[UIColor whiteColor]];
+    [self.widthSliderOutlet setTintColor:[UIColor whiteColor]];
+    [self.colorButton setTintColor:[UIColor whiteColor]];
+    [self.EraserButton setTintColor:[UIColor whiteColor]];
+    [self.BrushButton setTintColor:[UIColor whiteColor]];
+    [self.saveOutlet setTintColor:[UIColor whiteColor]];
+}
+-(void)lightTheme {
+    [[self.navigationController navigationBar] setBarTintColor:[UIColor colorWithRed:(247/255.0) green:(247/255.0) blue:(247/255.0) alpha:1]];
+    [self.upperToolbar setBarTintColor:[UIColor lightGrayColor]];
+    [editingToolBar setBarTintColor:[UIColor lightGrayColor]];
+    [self.clearAllOutlet setTintColor:[UIColor blackColor]];
+    [self.settingsOutlet setTintColor:[UIColor blackColor]];
+    [self.toolChangeOutlet setTintColor:[UIColor blackColor]];
+    [self.cameraOutlet setTintColor:[UIColor blackColor]];
+    [self.undoButton setTintColor:[UIColor blackColor]];
+    [self.redoButton setTintColor:[UIColor blackColor]];
+    [self.widthSliderOutlet setTintColor:[UIColor blackColor]];
+    [self.colorButton setTintColor:[UIColor blackColor]];
+    [self.EraserButton setTintColor:[UIColor blackColor]];
+    [self.BrushButton setTintColor:[UIColor blackColor]];
+    [self.saveOutlet setTintColor:[UIColor blackColor]];
 }
 
 @end
