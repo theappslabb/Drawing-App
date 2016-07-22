@@ -765,5 +765,9 @@
     [self.BrushButton setTintColor:[UIColor blackColor]];
     [self.saveOutlet setTintColor:[UIColor blackColor]];
 }
+-(void) viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:@"ThemeChanged"];
+    [[NSNotificationCenter defaultCenter] removeObserver:@"shareApp"];
+}
 
 @end
