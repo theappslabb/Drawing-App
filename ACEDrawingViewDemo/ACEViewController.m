@@ -166,7 +166,7 @@
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
     nav.modalPresentationStyle = UIModalPresentationPopover;
     UIPopoverPresentationController *popover = nav.popoverPresentationController;
-    controller.preferredContentSize = CGSizeMake(300, 400);
+    controller.preferredContentSize = CGSizeMake(300, 300);
     popover.delegate = self;
     popover.barButtonItem = self.settingsOutlet;
     [self presentViewController:nav animated:YES completion:nil];
