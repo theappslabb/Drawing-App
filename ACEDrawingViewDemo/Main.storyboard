@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ej1-rj-r2s">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ej1-rj-r2s">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -98,25 +98,25 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="h0g-PA-mw0" detailTextLabel="xpI-D6-Me1" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="ZKd-os-2ZC">
-                                <rect key="frame" x="0.0" y="92" width="600" height="60"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="h0g-PA-mw0" detailTextLabel="xpI-D6-Me1" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="ZKd-os-2ZC">
+                                <rect key="frame" x="0.0" y="92" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZKd-os-2ZC" id="7WH-oR-CAK">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h0g-PA-mw0">
-                                            <rect key="frame" x="15" y="13" width="32" height="20"/>
+                                            <rect key="frame" x="15" y="12" width="48" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xpI-D6-Me1">
-                                            <rect key="frame" x="15" y="33" width="41" height="14"/>
+                                            <rect key="frame" x="15" y="42" width="44" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -230,21 +230,39 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4e3-SS-o1Z"/>
                                     <barButtonItem tag="10" image="colorBase" id="toK-SG-eMR">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="colorSelected:" destination="ej1-rj-r2s" id="k2D-tz-hIQ"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem tag="11" image="colorBase" id="xlx-Fh-ip2">
                                         <color key="tintColor" red="0.93333333330000001" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="colorSelected:" destination="ej1-rj-r2s" id="d0w-bp-iTf"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem tag="12" image="colorBase" id="WX1-fn-U9E">
                                         <color key="tintColor" red="1" green="0.82352941180000006" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="colorSelected:" destination="ej1-rj-r2s" id="1Lt-1l-7t0"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem tag="13" image="colorBase" id="8HO-Pe-Aij">
                                         <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="colorSelected:" destination="ej1-rj-r2s" id="qkh-Ed-q8S"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem tag="14" image="colorBase" id="ErT-45-083">
                                         <color key="tintColor" red="0.50196078430000002" green="0.0" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="colorSelected:" destination="ej1-rj-r2s" id="oqr-9h-a8Q"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem tag="15" image="colorBase" id="qNS-UA-WYT">
                                         <color key="tintColor" red="0.0" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="colorSelected:" destination="ej1-rj-r2s" id="ex2-z9-2rB"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -275,7 +293,7 @@
                                     <barButtonItem image="colorBase" id="0Pn-Ha-1Sd">
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="colorSelected:" destination="ej1-rj-r2s" id="ANK-L2-UGu"/>
+                                            <action selector="showColorPicker" destination="ej1-rj-r2s" id="0Ge-fN-e2b"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem image="eraser" id="ubP-Hj-kFr">
@@ -308,27 +326,42 @@
                                                     <outletCollection property="gestureRecognizers" destination="eam-lJ-MpL" appends="YES" id="spa-ib-VSw"/>
                                                 </connections>
                                             </view>
-                                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="rA9-OV-3Xi">
-                                                <rect key="frame" x="158" y="242" width="284" height="29"/>
-                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VjX-4e-yun">
+                                                <rect key="frame" x="240" y="400" width="280" height="100"/>
+                                                <subviews>
+                                                    <slider opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="rA9-OV-3Xi">
+                                                        <rect key="frame" x="-2" y="36" width="284" height="29"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="sliderValueChanged:" destination="ej1-rj-r2s" eventType="valueChanged" id="toH-Z6-btZ"/>
+                                                            <action selector="widthChange:" destination="ej1-rj-r2s" eventType="valueChanged" id="K8S-hb-mL7"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="28" id="3u7-SB-RTq"/>
-                                                    <constraint firstAttribute="width" constant="280" id="cA5-ec-Ech"/>
+                                                    <constraint firstItem="rA9-OV-3Xi" firstAttribute="leading" secondItem="VjX-4e-yun" secondAttribute="leading" id="2QK-Aq-Qhy"/>
+                                                    <constraint firstItem="rA9-OV-3Xi" firstAttribute="centerY" secondItem="VjX-4e-yun" secondAttribute="centerY" id="QdT-Db-cjM"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rA9-OV-3Xi" secondAttribute="trailing" id="VUC-rd-N9c"/>
+                                                    <constraint firstItem="rA9-OV-3Xi" firstAttribute="top" secondItem="VjX-4e-yun" secondAttribute="top" constant="36" id="pff-jx-Dwg"/>
+                                                    <constraint firstAttribute="width" constant="280" id="t2i-GQ-H0X"/>
+                                                    <constraint firstAttribute="height" constant="100" id="vKl-jN-15r"/>
                                                 </constraints>
-                                                <connections>
-                                                    <action selector="sliderValueChanged:" destination="ej1-rj-r2s" eventType="valueChanged" id="toH-Z6-btZ"/>
-                                                    <action selector="widthChange:" destination="ej1-rj-r2s" eventType="valueChanged" id="K8S-hb-mL7"/>
-                                                </connections>
-                                            </slider>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="rA9-OV-3Xi" firstAttribute="centerX" secondItem="uJr-QK-ug5" secondAttribute="centerX" id="9xz-WH-E3V"/>
                                             <constraint firstItem="0tR-xt-GU7" firstAttribute="top" secondItem="lC7-ny-COs" secondAttribute="top" id="Bhy-br-mep"/>
                                             <constraint firstAttribute="bottom" secondItem="lC7-ny-COs" secondAttribute="bottom" id="Bjs-Qg-lIw"/>
+                                            <constraint firstAttribute="trailing" secondItem="VjX-4e-yun" secondAttribute="trailing" constant="80" id="DWp-L0-NO6"/>
                                             <constraint firstItem="0tR-xt-GU7" firstAttribute="leading" secondItem="lC7-ny-COs" secondAttribute="leading" id="NBI-ek-pC3"/>
                                             <constraint firstItem="0tR-xt-GU7" firstAttribute="bottom" secondItem="lC7-ny-COs" secondAttribute="bottom" id="O66-x5-h5f"/>
-                                            <constraint firstItem="rA9-OV-3Xi" firstAttribute="centerY" secondItem="uJr-QK-ug5" secondAttribute="centerY" id="WK9-e3-OwP"/>
+                                            <constraint firstAttribute="bottom" secondItem="VjX-4e-yun" secondAttribute="bottom" constant="12" id="bYu-G1-xBq"/>
                                             <constraint firstAttribute="trailing" secondItem="lC7-ny-COs" secondAttribute="trailing" id="lJf-YF-DVT"/>
                                             <constraint firstItem="0tR-xt-GU7" firstAttribute="trailing" secondItem="lC7-ny-COs" secondAttribute="trailing" id="mlT-mP-xcr"/>
                                             <constraint firstItem="lC7-ny-COs" firstAttribute="leading" secondItem="uJr-QK-ug5" secondAttribute="leading" id="rTV-es-Koz"/>
@@ -372,18 +405,19 @@
                     <connections>
                         <outlet property="BrushButton" destination="spD-2x-USI" id="Xhk-lz-trT"/>
                         <outlet property="EraserButton" destination="ubP-Hj-kFr" id="ydp-QZ-0hz"/>
+                        <outlet property="brushStrokeSliderBV" destination="VjX-4e-yun" id="kFE-pX-aae"/>
                         <outlet property="cameraOutlet" destination="gkB-Nu-jHS" id="lKl-Ao-wRr"/>
                         <outlet property="clearAllOutlet" destination="XhQ-T0-a6G" id="SHD-8V-Fay"/>
-                        <outlet property="colorButton" destination="0Pn-Ha-1Sd" id="p7S-A9-xMM"/>
+                        <outlet property="colorToolbar" destination="hkQ-eT-OFs" id="PpW-qd-Jr1"/>
                         <outlet property="containerView" destination="uJr-QK-ug5" id="89o-Hi-EwH"/>
                         <outlet property="drawingView" destination="0tR-xt-GU7" id="rZN-60-1XZ"/>
                         <outlet property="editingToolBar" destination="Eco-c2-c3H" id="lta-Gr-mZA"/>
                         <outlet property="imageView" destination="lC7-ny-COs" id="tY2-X5-OTx"/>
                         <outlet property="lineWidthSlider" destination="rA9-OV-3Xi" id="W4d-jO-8sb"/>
-                        <outlet property="lowerToolbar" destination="hkQ-eT-OFs" id="Eiv-iU-lMJ"/>
                         <outlet property="redoButton" destination="Hcn-Ih-RWx" id="3oS-UA-8VF"/>
                         <outlet property="saveOutlet" destination="Zlf-Io-LDE" id="K2U-y8-eef"/>
                         <outlet property="scrollView" destination="nUm-E4-LXD" id="1Tu-me-kyt"/>
+                        <outlet property="selectedColor" destination="0Pn-Ha-1Sd" id="iCb-Bp-wDj"/>
                         <outlet property="settingsOutlet" destination="4dq-t8-PAN" id="4b7-ta-8VC"/>
                         <outlet property="toolChangeOutlet" destination="U6e-OA-Tyw" id="FYI-rM-1pe"/>
                         <outlet property="undoButton" destination="zP7-ey-rXt" id="WL4-XL-pdQ"/>

@@ -8,6 +8,7 @@
     __weak IBOutlet UIToolbar *
     editingToolBar;
     __weak IBOutlet UIBarButtonItem *selectedColor;
+    __weak IBOutlet UIView *brushStrokeSliderBV;
     
 }
 
@@ -30,7 +31,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *widthOutlet;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsOutlet;
 @property (weak, nonatomic) IBOutlet UIToolbar *upperToolbar;
-@property (weak, nonatomic) IBOutlet UIToolbar *lowerToolbar;
+@property (weak, nonatomic) IBOutlet UIToolbar *colorToolbar;
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *clearAllOutlet;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *toolChangeOutlet;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraOutlet;

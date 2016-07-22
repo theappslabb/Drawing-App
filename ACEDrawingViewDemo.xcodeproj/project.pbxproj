@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E8882811D3ABD3F0020A12D /* Colorpicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8882801D3ABD3F0020A12D /* Colorpicker.m */; };
+		5E9592A11D429BF900BDB274 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9592A01D429BF900BDB274 /* Launch Screen.storyboard */; };
 		5EA4188A1D1AFED9007F2D36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA418891D1AFED9007F2D36 /* Main.storyboard */; };
 		6D796B7B19184BBA0045456F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D796B7A19184BBA0045456F /* CoreText.framework */; };
 		7B5AD3FB169A072800904C6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5AD3FA169A072800904C6B /* UIKit.framework */; };
@@ -19,7 +20,6 @@
 		7B5AD40D169A072800904C6B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AD40C169A072800904C6B /* Default.png */; };
 		7B5AD40F169A072800904C6B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AD40E169A072800904C6B /* Default@2x.png */; };
 		7B5AD411169A072800904C6B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AD410169A072800904C6B /* Default-568h@2x.png */; };
-		7B5AD417169A072800904C6B /* ACEViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AD415169A072800904C6B /* ACEViewController.xib */; };
 		7B5AD427169A077900904C6B /* ACEDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AD426169A077900904C6B /* ACEDrawingView.m */; };
 		7B78A68716A4B6780086F7B9 /* ACEDrawingTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B78A68616A4B6770086F7B9 /* ACEDrawingTools.m */; };
 		C9CA4F901C7D921000FD95EE /* VIPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CA4F8F1C7D921000FD95EE /* VIPhotoView.m */; };
@@ -36,6 +36,7 @@
 /* Begin PBXFileReference section */
 		5E88827F1D3ABD3F0020A12D /* Colorpicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colorpicker.h; sourceTree = "<group>"; };
 		5E8882801D3ABD3F0020A12D /* Colorpicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colorpicker.m; sourceTree = "<group>"; };
+		5E9592A01D429BF900BDB274 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5EA418891D1AFED9007F2D36 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6D796B7A19184BBA0045456F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		7B5AD3F6169A072800904C6B /* ACEDrawingViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACEDrawingViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,7 +52,6 @@
 		7B5AD40C169A072800904C6B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		7B5AD40E169A072800904C6B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7B5AD410169A072800904C6B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		7B5AD416169A072800904C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ACEViewController.xib; sourceTree = "<group>"; };
 		7B5AD425169A077900904C6B /* ACEDrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEDrawingView.h; sourceTree = "<group>"; };
 		7B5AD426169A077900904C6B /* ACEDrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACEDrawingView.m; sourceTree = "<group>"; };
 		7B78A68516A4B6770086F7B9 /* ACEDrawingTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEDrawingTools.h; sourceTree = "<group>"; };
@@ -131,9 +131,9 @@
 				E2E83C791D1E2C6F00295B8D /* TemplateSelectionViewController.h */,
 				E2E83C7A1D1E2C6F00295B8D /* TemplateSelectionViewController.m */,
 				5EA418891D1AFED9007F2D36 /* Main.storyboard */,
+				5E9592A01D429BF900BDB274 /* Launch Screen.storyboard */,
 				E20B336D1D24244800D531E3 /* BaseViewController.h */,
 				E20B336E1D24244800D531E3 /* BaseViewController.m */,
-				7B5AD415169A072800904C6B /* ACEViewController.xib */,
 				C9CD0AB61C7C3791007F4BC8 /* patriotism.jpg */,
 				C9CA4F911C7DD2D700FD95EE /* Images.xcassets */,
 				7B5AD401169A072800904C6B /* Supporting Files */,
@@ -242,11 +242,11 @@
 			files = (
 				7B5AD405169A072800904C6B /* InfoPlist.strings in Resources */,
 				7B5AD40D169A072800904C6B /* Default.png in Resources */,
+				5E9592A11D429BF900BDB274 /* Launch Screen.storyboard in Resources */,
 				C9CA4F921C7DD2D700FD95EE /* Images.xcassets in Resources */,
 				5EA4188A1D1AFED9007F2D36 /* Main.storyboard in Resources */,
 				7B5AD40F169A072800904C6B /* Default@2x.png in Resources */,
 				7B5AD411169A072800904C6B /* Default-568h@2x.png in Resources */,
-				7B5AD417169A072800904C6B /* ACEViewController.xib in Resources */,
 				C9CD0AB71C7C3791007F4BC8 /* patriotism.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,14 +281,6 @@
 				7B5AD404169A072800904C6B /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		7B5AD415169A072800904C6B /* ACEViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7B5AD416169A072800904C6B /* en */,
-			);
-			name = ACEViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -350,7 +342,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ACEDrawingViewDemo/ACEDrawingViewDemo-Prefix.pch";
@@ -367,7 +358,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ACEDrawingViewDemo/ACEDrawingViewDemo-Prefix.pch";

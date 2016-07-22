@@ -490,7 +490,7 @@
 - (IBAction)toggleWidthSlider:(id)sender
 {
     // toggle the slider
-    self.lineWidthSlider.hidden = !self.lineWidthSlider.hidden;
+    self->brushStrokeSliderBV.hidden = !self->brushStrokeSliderBV.hidden;
     [self.lineWidthSlider setValue:self.drawingView.lineWidth];
 //    [self GetFileWithName];wi
     if (self.containerView.alpha == 1) {
@@ -508,26 +508,24 @@
     // toggle the slider
     self.lineWidthSlider.hidden = YES;
     
+    
     //    [self GetFileWithName];
     [self.drawingView setUserInteractionEnabled:YES];
 }
 
 - (IBAction)sliderValueChanged:(UISlider *)sender {
     self.drawingView.lineWidth = sender.value;
-    NSLog(@"%f",self.drawingView.lineWidth);
 }
 
 - (IBAction)widthChange:(UISlider *)sender
 {
-//    NSLog(@"%d",self.lineWidthSlider.value);
-//    self.drawingView.lineWidth = self.lineWidthSlider.value;
 }
 
 - (IBAction)toggleAlphaSlider:(id)sender
 {
     // toggle the slider
-    self.lineAlphaSlider.hidden = !self.lineAlphaSlider.hidden;
-    self.lineWidthSlider.hidden = YES;
+    self->brushStrokeSliderBV.hidden = !self.lineAlphaSlider.hidden;
+    self->brushStrokeSliderBV.hidden = YES;
 }
 
 - (IBAction)alphaChange:(UISlider *)sender
@@ -535,73 +533,6 @@
     self.drawingView.lineAlpha = sender.value;
 }
 
-//- (instancetype)initWithFrame:(CGRect)frame andImage:(UIImage *)image
-//{
-//    self = [super initWithFrame:frame];
-//    if (self) {
-//        self.delegate = self;
-//        self.bouncesZoom = YES;
-//        
-//        // Add container view
-//        UIView *containerView = [[UIView alloc] initWithFrame:self.bounds];
-//        containerView.backgroundColor = [UIColor clearColor];
-//        [self addSubview:containerView];
-//        _containerView = containerView;
-//        
-//        // Add image view
-//        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-//        imageView.frame = CGRectMake(0, 0, containerView.frame.size.width, containerView.frame.size.height);
-//        imageView.backgroundColor = [UIColor redColor];
-//        imageView.contentMode = UIViewContentModeScaleToFill;
-//        [containerView addSubview:imageView];
-//        _imageView = imageView;
-//        
-//        
-//        // Fit container view's size to image size
-//        //        CGSize imageSize = imageView.contentSize;
-//        //        self.containerView.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
-//        //        imageView.bounds = CGRectMake(0, 0, imageSize.width, imageSize.height);
-//        //        imageView.center = CGPointMake(containerView.frame.size.width / 2, containerView.frame.size.height / 2);
-//        //
-//        //        self.contentSize = imageSize;
-//        //        self.minSize = imageSize;
-//        
-//        
-//        [self setMaxMinZoomScale];
-//        
-//        // Center containerView by set insets
-//        //        [self centerContent];
-//        
-//        // Setup other events
-//        [self setupGestureRecognizer];
-//        [self setupRotationNotification];
-//    }
-//    return self;
-//}
-
-
-//- (void)layoutSubviews
-//{
-//    [super layoutSubviews];
-//    
-//    if (self.rotating) {
-//        self.rotating = NO;
-//        
-//        // update container view frame
-//        CGSize containerSize = self.containerView.frame.size;
-//        BOOL containerSmallerThanSelf = (containerSize.width < CGRectGetWidth(self.bounds)) && (containerSize.height < CGRectGetHeight(self.bounds));
-//        
-//        CGSize imageSize = [self.imageView.image sizeThatFits:self.bounds.size];
-//        CGFloat minZoomScale = imageSize.width / self.minSize.width;
-//        self.minimumZoomScale = minZoomScale;
-//        if (containerSmallerThanSelf || self.zoomScale == self.minimumZoomScale) { // 宽度或高度 都小于 self 的宽度和高度
-//            self.zoomScale = minZoomScale;
-//        }
-//        
-//        // Center container view
-//        [self centerContent];
-//    }
-//}
 
 - (void)dealloc
 {
@@ -693,7 +624,7 @@
 //    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
     controller.modalPresentationStyle = UIModalPresentationPopover;
     UIPopoverPresentationController *popover = controller.popoverPresentationController;
-    controller.preferredContentSize = CGSizeMake(300, 400);
+    controller.preferredContentSize = CGSizeMake(300, 300);
     popover.delegate = self;
     if ([storyBoardID  isEqual: @"shapes"]) {
         popover.barButtonItem = _shapesOutlet;
@@ -735,6 +666,7 @@
 -(void)darkTheme {
     [[self.navigationController navigationBar] setBarTintColor:[UIColor darkGrayColor]];
     [self.upperToolbar setBarTintColor:[UIColor darkGrayColor]];
+    [self.colorToolbar setBarTintColor:[UIColor darkGrayColor]];
     [editingToolBar setBarTintColor:[UIColor darkGrayColor]];
     [self.clearAllOutlet setTintColor:[UIColor whiteColor]];
     [self.settingsOutlet setTintColor:[UIColor whiteColor]];
@@ -752,6 +684,7 @@
 -(void)lightTheme {
     [[self.navigationController navigationBar] setBarTintColor:[UIColor colorWithRed:(247/255.0) green:(247/255.0) blue:(247/255.0) alpha:1]];
     [self.upperToolbar setBarTintColor:[UIColor lightGrayColor]];
+    [self.colorToolbar setBarTintColor:[UIColor lightGrayColor]];
     [editingToolBar setBarTintColor:[UIColor lightGrayColor]];
     [self.clearAllOutlet setTintColor:[UIColor blackColor]];
     [self.settingsOutlet setTintColor:[UIColor blackColor]];
