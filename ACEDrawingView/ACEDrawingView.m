@@ -282,6 +282,8 @@
             break;
     }
     
+    
+    
     // add the first touch
     UITouch *touch = [touches anyObject];
     previousPoint1 = [touch previousLocationInView:self];

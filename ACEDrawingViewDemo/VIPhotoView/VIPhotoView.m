@@ -169,6 +169,12 @@
 
 - (void)tapHandler:(UITapGestureRecognizer *)recognizer
 {
+    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(50, 50, 100, 100)] CGPath]];
+    [[self layer] addSublayer:circleLayer];
+    [circleLayer setStrokeColor:[[UIColor redColor] CGColor]];
+    [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
+    
     if (self.zoomScale > self.minimumZoomScale) {
         [self setZoomScale:self.minimumZoomScale animated:YES];
     } else if (self.zoomScale < self.maximumZoomScale) {

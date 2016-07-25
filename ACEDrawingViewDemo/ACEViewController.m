@@ -66,6 +66,15 @@
 {
     [super viewDidLoad];
     
+    circleLayer = [CAShapeLayer layer];
+    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(50, 50, 100, 100)] CGPath]];
+    [[self.view layer] addSublayer:circleLayer];
+    [circleLayer setStrokeColor:[[UIColor redColor] CGColor]];
+    [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
+    
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+    [self.view addGestureRecognizer:panGesture];
+    
     _picker = [Colorpicker new];
     
     [self addObservers];
@@ -113,6 +122,20 @@
 
     [self.navigationController.navigationBar setHidden:YES];
     
+}
+
+-(void)handlePanGesture:(UIPanGestureRecognizer *)sender
+{
+    CGPoint translate = [sender translationInView:self.view];
+    
+    circleLayer.frame = CGRectMake(circleLayer.frame.origin.x + translate.x, circleLayer.frame.origin.x + translate.y, circleLayer.frame.size.width, circleLayer.frame.size.height);
+//    CGRect newFrame = bouton.frame;
+//    newFrame.origin.x += translate.x;
+//    newFrame.origin.y += translate.y;
+//    sender.view.frame = newFrame;
+//    
+//    if(sender.state == UIGestureRecognizerStateEnded)
+//        bouton.frame = newFrame;
 }
 
 - (void)methodToChangeTheme:(NSNotification *)notification
@@ -570,6 +593,7 @@
 
 - (void)tapHandler:(UITapGestureRecognizer *)recognizer
 {
+    
     if (self.scrollView.zoomScale > self.scrollView.minimumZoomScale) {
         [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
     } else if (self.scrollView.zoomScale < self.scrollView.maximumZoomScale) {

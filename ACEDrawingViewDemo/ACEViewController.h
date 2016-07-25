@@ -1,4 +1,5 @@
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @class Colorpicker;
 @class ACEDrawingView;
@@ -9,6 +10,7 @@
     editingToolBar;
     __weak IBOutlet UIBarButtonItem *selectedColor;
     __weak IBOutlet UIView *brushStrokeSliderBV;
+    CAShapeLayer *circleLayer;
     
 }
 
