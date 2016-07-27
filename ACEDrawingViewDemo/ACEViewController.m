@@ -66,14 +66,14 @@
 {
     [super viewDidLoad];
     
-    circleLayer = [CAShapeLayer layer];
-    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(50, 50, 100, 100)] CGPath]];
-    [[self.view layer] addSublayer:circleLayer];
-    [circleLayer setStrokeColor:[[UIColor redColor] CGColor]];
-    [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
-    
-    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
-    [self.view addGestureRecognizer:panGesture];
+//    circleLayer = [CAShapeLayer layer];
+//    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(50, 50, 100, 100)] CGPath]];
+//    [[self.view layer] addSublayer:circleLayer];
+//    [circleLayer setStrokeColor:[[UIColor redColor] CGColor]];
+//    [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
+//    
+//    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+//    [self.view addGestureRecognizer:panGesture];
     
     _picker = [Colorpicker new];
     
@@ -126,9 +126,9 @@
 
 -(void)handlePanGesture:(UIPanGestureRecognizer *)sender
 {
-    CGPoint translate = [sender translationInView:self.view];
-    
-    circleLayer.frame = CGRectMake(circleLayer.frame.origin.x + translate.x, circleLayer.frame.origin.x + translate.y, circleLayer.frame.size.width, circleLayer.frame.size.height);
+//    CGPoint translate = [sender translationInView:self.view];
+//    
+//    circleLayer.frame = CGRectMake(circleLayer.frame.origin.x + translate.x, circleLayer.frame.origin.x + translate.y, circleLayer.frame.size.width, circleLayer.frame.size.height);
 //    CGRect newFrame = bouton.frame;
 //    newFrame.origin.x += translate.x;
 //    newFrame.origin.y += translate.y;
@@ -221,6 +221,14 @@
     }
     
     
+}
+
+- (IBAction)getImageFromGallery:(UIBarButtonItem *)sender {
+    UIImagePickerController *pickerView = [[UIImagePickerController alloc] init];
+    pickerView.allowsEditing = YES;
+    pickerView.delegate = self;
+    [pickerView setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self presentModalViewController:pickerView animated:YES];
 }
 
 - (IBAction)S:(UIBarButtonItem *)sender {

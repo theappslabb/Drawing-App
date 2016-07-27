@@ -55,6 +55,7 @@
 - (IBAction)getImage:(UIBarButtonItem *)sender;
 - (IBAction)settings:(UIBarButtonItem *)sender;
 - (IBAction)saveDrawing:(UIBarButtonItem *)sender;
+- (IBAction)getImageFromGallery:(UIBarButtonItem *)sender;
 
 // settings
 - (IBAction)colorChange:(id)sender;

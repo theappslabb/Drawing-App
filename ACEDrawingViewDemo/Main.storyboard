@@ -190,18 +190,23 @@
                                     <constraint firstAttribute="height" constant="44" id="Fx0-Fc-uo9"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Clear all" id="XhQ-T0-a6G">
+                                    <barButtonItem image="clearall" id="XhQ-T0-a6G">
                                         <connections>
                                             <action selector="clear:" destination="ej1-rj-r2s" id="DmY-Xr-TtA"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="gH7-1I-U9s"/>
-                                    <barButtonItem title="Save" id="Zlf-Io-LDE">
+                                    <barButtonItem title="get item" id="HdB-Wl-CMp">
+                                        <connections>
+                                            <action selector="getImageFromGallery:" destination="ej1-rj-r2s" id="4I3-PN-ey2"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="save" id="Zlf-Io-LDE">
                                         <connections>
                                             <action selector="saveDrawing:" destination="ej1-rj-r2s" id="Jkj-yU-KjV"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Settings" id="4dq-t8-PAN">
+                                    <barButtonItem image="settings" id="4dq-t8-PAN">
                                         <connections>
                                             <action selector="settings:" destination="ej1-rj-r2s" id="3Lp-Go-1sP"/>
                                         </connections>
@@ -209,11 +214,6 @@
                                     <barButtonItem image="shapes" id="U6e-OA-Tyw">
                                         <connections>
                                             <action selector="toolChange:" destination="ej1-rj-r2s" id="JvC-v1-BJl"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="camera" id="gkB-Nu-jHS">
-                                        <connections>
-                                            <action selector="takeScreenshot:" destination="ej1-rj-r2s" id="S1F-nJ-tdN"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -406,7 +406,6 @@
                         <outlet property="BrushButton" destination="spD-2x-USI" id="Xhk-lz-trT"/>
                         <outlet property="EraserButton" destination="ubP-Hj-kFr" id="ydp-QZ-0hz"/>
                         <outlet property="brushStrokeSliderBV" destination="VjX-4e-yun" id="kFE-pX-aae"/>
-                        <outlet property="cameraOutlet" destination="gkB-Nu-jHS" id="lKl-Ao-wRr"/>
                         <outlet property="clearAllOutlet" destination="XhQ-T0-a6G" id="SHD-8V-Fay"/>
                         <outlet property="colorToolbar" destination="hkQ-eT-OFs" id="PpW-qd-Jr1"/>
                         <outlet property="containerView" destination="uJr-QK-ug5" id="89o-Hi-EwH"/>
@@ -437,9 +436,12 @@
     </scenes>
     <resources>
         <image name="Redo" width="32" height="32"/>
+        <image name="clearall" width="32" height="32"/>
         <image name="colorBase" width="30" height="30"/>
         <image name="eraser" width="32" height="32"/>
         <image name="menu" width="32" height="32"/>
+        <image name="save" width="32" height="32"/>
+        <image name="settings" width="32" height="32"/>
         <image name="shapes" width="32" height="32"/>
         <image name="thin" width="20" height="20"/>
         <image name="undo" width="32" height="32"/>
