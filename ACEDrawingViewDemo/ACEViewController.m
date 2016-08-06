@@ -241,19 +241,24 @@
     
     
     
-    UIGraphicsBeginImageContext(CGSizeMake(self.view.frame.size.width, self.view.frame.size.height));
-    [img drawInRect:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
-    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-    //here is the scaled image which has been changed to the size specified
-    UIGraphicsEndImageContext();
+//    UIGraphicsBeginImageContext(CGSizeMake(self.view.frame.size.width, self.view.frame.size.height));
+//    [img drawInRect:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
+//    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+//    //here is the scaled image which has been changed to the size specified
+//    UIGraphicsEndImageContext();
     
-    _drawingView.contentMode = UIViewContentModeScaleAspectFit;
+//    _drawingView.contentMode = UIViewContentModeScaleAspectFit;
     
-    _drawingView.clipsToBounds = YES;
+//    _drawingView.clipsToBounds = YES;
     
-    self.scrollView.frame = self.view.frame;
+//    self.scrollView.frame = self.view.frame;
     
-    [self.drawingView loadImage:newImage];
+    [self.imageView setImage:img];
+    
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+
+    
+//    [self.drawingView loadImage:newImage];
     
 }
 
