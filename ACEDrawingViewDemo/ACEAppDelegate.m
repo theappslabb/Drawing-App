@@ -33,6 +33,8 @@
         [[NSUserDefaults standardUserDefaults] setObject:@"normal"forKey:@"themeColor"];
     }
     
+    [[NSUserDefaults standardUserDefaults] setObject:@"true" forKey:@"Run"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     return YES;
 }
@@ -61,8 +63,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+ 
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 @end

@@ -62,6 +62,66 @@
 
 @implementation ACEViewController
 
+-(void) viewDidLayoutSubviews {
+    self.drawingView.backgroundColor = [UIColor redColor];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Run"]  isEqual: @"true"]) {
+        drawingViewFrame = self.drawingView.frame;
+        [[NSUserDefaults standardUserDefaults] setObject:@"false" forKey:@"Run"];
+    } else {
+        //        if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
+        //        {
+        self.drawingView.frame = drawingViewFrame;
+        self.drawingView.center = self.view.center;
+        //        } else {
+        //            self.drawingView.frame = drawingViewFrame;
+        //            self.drawingView.center = self.view.center;
+        //        }
+    }
+    
+}
+
+//override func viewWillLayoutSubviews() {
+//    
+//    if UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeLeft || UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeRight {
+//        
+//        var rect = topLeftView.frame
+//        rect.size.width = 254
+//        rect.size.height = 130
+//        topLeftView.frame = rect
+//        
+//        rect = topRightView.frame
+//        rect.origin.x = 294
+//        rect.size.width = 254
+//        rect.size.height = 130
+//        topRightView.frame = rect
+//        
+//        rect = bottomView.frame
+//        rect.origin.y = 170
+//        rect.size.width = 528
+//        rect.size.height = 130
+//        bottomView.frame = rect
+//        
+//    } else {
+//        
+//        var rect = topLeftView.frame
+//        rect.size.width = 130
+//        rect.size.height = 254
+//        topLeftView.frame = rect
+//        
+//        rect = topRightView.frame
+//        rect.origin.x = 170
+//        rect.size.width = 130
+//        rect.size.height = 254
+//        topRightView.frame = rect
+//        
+//        rect = bottomView.frame
+//        rect.origin.y = 295
+//        rect.size.width = 280
+//        rect.size.height = 254
+//        bottomView.frame = rect
+//    }
+//}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

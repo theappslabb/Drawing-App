@@ -12,6 +12,8 @@
     __weak IBOutlet UIView *brushStrokeSliderBV;
     CAShapeLayer *circleLayer;
     
+    CGRect drawingViewFrame;
+    
 }
 
 @property (nonatomic,strong) Colorpicker *picker;
