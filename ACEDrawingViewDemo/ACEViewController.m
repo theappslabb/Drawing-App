@@ -62,23 +62,23 @@
 
 @implementation ACEViewController
 
--(void) viewDidLayoutSubviews {
-    self.drawingView.backgroundColor = [UIColor redColor];
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Run"]  isEqual: @"true"]) {
-        drawingViewFrame = self.drawingView.frame;
-        [[NSUserDefaults standardUserDefaults] setObject:@"false" forKey:@"Run"];
-    } else {
-        //        if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
-        //        {
-        self.drawingView.frame = drawingViewFrame;
-        self.drawingView.center = self.view.center;
-        //        } else {
-        //            self.drawingView.frame = drawingViewFrame;
-        //            self.drawingView.center = self.view.center;
-        //        }
-    }
-    
-}
+//-(void) viewDidLayoutSubviews {
+//    self.drawingView.backgroundColor = [UIColor redColor];
+//    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Run"]  isEqual: @"true"]) {
+//        drawingViewFrame = self.drawingView.frame;
+//        [[NSUserDefaults standardUserDefaults] setObject:@"false" forKey:@"Run"];
+//    } else {
+//        //        if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
+//        //        {
+//        self.drawingView.frame = drawingViewFrame;
+//        self.drawingView.center = self.view.center;
+//        //        } else {
+//        //            self.drawingView.frame = drawingViewFrame;
+//        //            self.drawingView.center = self.view.center;
+//        //        }
+//    }
+//    
+//}
 
 //override func viewWillLayoutSubviews() {
 //    
@@ -122,9 +122,19 @@
 //    }
 //}
 
+-(void) viewDidAppear:(BOOL)animated {
+    if (!run) {
+        self.drawingView.frame = [self calculateClientRectOfImageInUIImageView:self.imageView];
+    } else {
+        run = false;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    run = true;
     
 //    circleLayer = [CAShapeLayer layer];
 //    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(50, 50, 100, 100)] CGPath]];
@@ -239,6 +249,7 @@
     UIImagePickerController *pickerView = [[UIImagePickerController alloc] init];
     pickerView.allowsEditing = YES;
     pickerView.delegate = self;
+    [self shouldAutorotate];
     [pickerView setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [self presentModalViewController:pickerView animated:YES];
 
@@ -288,8 +299,15 @@
     pickerView.allowsEditing = YES;
     pickerView.delegate = self;
     [pickerView setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    [self presentModalViewController:pickerView animated:YES];
+    [self presentViewController:pickerView animated:true completion:^(void){
+        
+    }];
 }
+
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskLandscape;
+}
+
 
 - (IBAction)S:(UIBarButtonItem *)sender {
 }
@@ -316,11 +334,41 @@
     [self.imageView setImage:img];
     
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-
+    
     
 //    [self.drawingView loadImage:newImage];
     
 }
+
+-(CGRect )calculateClientRectOfImageInUIImageView:(UIImageView *)imgView
+{
+    CGSize imgViewSize=imgView.frame.size;                  // Size of UIImageView
+    CGSize imgSize=imgView.image.size;                      // Size of the image, currently displayed
+    
+    // Calculate the aspect, assuming imgView.contentMode==UIViewContentModeScaleAspectFit
+    
+    CGFloat scaleW = imgViewSize.width / imgSize.width;
+    CGFloat scaleH = imgViewSize.height / imgSize.height;
+    CGFloat aspect=fmin(scaleW, scaleH);
+    
+    CGRect imageRect={ {0,0} , { imgSize.width*=aspect, imgSize.height*=aspect } };
+    
+    // Note: the above is the same as :
+    // CGRect imageRect=CGRectMake(0,0,imgSize.width*=aspect,imgSize.height*=aspect) I just like this notation better
+    
+    // Center image
+    
+    imageRect.origin.x=(imgViewSize.width-imageRect.size.width)/2;
+    imageRect.origin.y=(imgViewSize.height-imageRect.size.height)/2;
+    
+    // Add imageView offset
+    
+    imageRect.origin.x+=imgView.frame.origin.x;
+    imageRect.origin.y+=imgView.frame.origin.y;
+    
+    return(imageRect);
+}
+
 
 
 - (void) SaveFileWithName

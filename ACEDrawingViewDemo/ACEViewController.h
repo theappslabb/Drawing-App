@@ -14,6 +14,8 @@
     
     CGRect drawingViewFrame;
     
+    BOOL run;
+    
 }
 
 @property (nonatomic,strong) Colorpicker *picker;

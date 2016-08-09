@@ -33,8 +33,8 @@
         [[NSUserDefaults standardUserDefaults] setObject:@"normal"forKey:@"themeColor"];
     }
     
-    [[NSUserDefaults standardUserDefaults] setObject:@"true" forKey:@"Run"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+//    [[NSUserDefaults standardUserDefaults] setObject:@"true" forKey:@"Run"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
     
     return YES;
 }
